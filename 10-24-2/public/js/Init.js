@@ -39,12 +39,12 @@ function init () {
 function init_story_intro () {
 
   // Name of the story
-  let story = "intro";
+  let story_name = "intro";
   // The story itself
   var story1 = new Story();
 
   // All the scenes
-  var scene1 = new Scene(story, "scene_4_portes", 2); // "intro" is the story used to start the other stories
+  var scene1 = new Scene(story_name, "scene_4_portes", 2); // "intro" is the story used to start the other stories
   story1.add_scene(1, scene1);
   var choice_portes = new Choice();
   choice_portes.add_choice("Harcelement",story_bullying,change_story=true);
@@ -63,15 +63,15 @@ function init_story_intro () {
 function init_story_bullying() {
 
   // Name of the story
-  let story = "bullying";
+  let story_name = "bullying";
   // The story itself
   var story_bullying = new Story();
 
 
-  var scene1 = new Scene(story, "enfant_s_enferme", 2);
+  var scene1 = new Scene(story_name, "enfant_s_enferme", 2);
 
 
-  var scene2 = new Scene(story, "choix_1_aller_le_voir", 3);
+  var scene2 = new Scene(story_name, "choix_1_aller_le_voir", 3);
   var choice1 = new Choice();
   choice1.add_choice("aller_voir",2);
   choice1.add_choice("on_a_tous_des_mauvais_jours",2);
@@ -79,22 +79,22 @@ function init_story_bullying() {
   scene2.add_choice(choice1);
 
 
-  var scene3 = new Scene(story, "tu_es_sur", 4);
+  var scene3 = new Scene(story_name, "tu_es_sur", 4);
 
 
-  var scene4 = new Scene(story, "choix_2_insister", 5);
+  var scene4 = new Scene(story_name, "choix_2_insister", 5);
   var choice2 = new Choice();
   choice2.add_choice("non_ca_ne_va_pas",4);
   choice2.add_choice("je_te_laisse_tranquille",4);
   scene4.add_choice(choice2);
 
-  var scene5 = new Scene(story, "flashback", 6);
+  var scene5 = new Scene(story_name, "flashback", 6);
 
-  var scene6 = new Scene(story, "insister_encore", 7);
+  var scene6 = new Scene(story_name, "insister_encore", 7);
 
-  var scene7 = new Scene(story, "fin", 0);
+  var scene7 = new Scene(story_name, "fin", 0);
 
-  var scene_retour_choix_porte = new Scene(story, "retour_choix_porte", 0);
+  var scene_retour_choix_porte = new Scene(story_name, "retour_choix_porte", 0);
 
   story_bullying.add_scene(1, scene1);
   story_bullying.add_scene(2, scene2);
@@ -115,11 +115,11 @@ function init_story_bullying() {
 function init_story_screens() {
 
   // Name of the story
-  let story = "screens";
+  let story_name = "screens";
   // The story itself
   var story_screens = new Story();
 
-  var scene1 = new Scene(story, "bruits_chambre", 2);
+  var scene1 = new Scene(story_name, "bruits_chambre", 2);
 
 
   var choice1 = new Choice();
@@ -127,24 +127,24 @@ function init_story_screens() {
   choice1.add_choice("cest_son_cote_creatif",2);
 
 
-  var scene2 = new Scene(story, "choix_1_aller_voir", 2);
+  var scene2 = new Scene(story_name, "choix_1_aller_voir", 2);
   scene2.add_choice(choice1);
-  var scene3 = new Scene(story, "cest_son_cote_creatif", 1);
-  var scene4 = new Scene(story, "entrer_chambre", 5);
-  var scene5 = new Scene(story, "il_est_23h", 6);
+  var scene3 = new Scene(story_name, "cest_son_cote_creatif", 1);
+  var scene4 = new Scene(story_name, "entrer_chambre", 5);
+  var scene5 = new Scene(story_name, "il_est_23h", 6);
 
 
   var slider = new Slider();
   // Ajouter un slider pour définir la plage horaire
 
 
-  var scene7 = new Scene(story, "mauvaise_reponse", 6);
-  var scene8 = new Scene(story, "bonne_reponse", 9);
-  var scene6 = new Scene(story, "choix_plage_horaire", 6);
+  var scene7 = new Scene(story_name, "mauvaise_reponse", 6);
+  var scene8 = new Scene(story_name, "bonne_reponse", 9);
+  var scene6 = new Scene(story_name, "choix_plage_horaire", 6);
   scene6.new_top_layer(slider);
-  var scene9 = new Screen(story, "informations_techniques", 10);
-  var scene10 = new Screen(story, "fin", 0);
-  var scene_retour_choix_porte = new Scene(story, "retour_choix_porte", 0);
+  var scene9 = new Scene(story_name, "informations_techniques", 10);
+  var scene10 = new Scene(story_name, "fin", 0);
+  var scene_retour_choix_porte = new Scene(story_name, "retour_choix_porte", 0);
 
   story_screens.add_scene(1, scene1);
   story_screens.add_scene(2, scene2);
@@ -167,7 +167,7 @@ function init_story_puberty() {
     //This story will start one of the 2 stories for puberty (girl or boy)
 
     // Name of the story
-    let story = "puberty_choice";
+    let story_name = "puberty_choice";
     // The story itself
     var story_puberty_choice = new Story();
 
@@ -176,12 +176,10 @@ function init_story_puberty() {
     choice1.add_choice("garcon", story_pubertyM, change_story=true);
     choice1.add_choice("fille", story_pubertyF, change_story=true);
 
-    //
-    // var scene = new Scene(story, "choix_du_sexe", 1);
-    // scene.add_choice(choice1);
-    // var scene_retour_choix_porte = new Scene(story, "retour_choix_porte", 0);
-    //
-    // story_puberty_choice.add_scene(1, scene);
+    var scene = new Scene(story_name, "choix_du_sexe", 1);
+    scene.add_choice(choice1);
+
+    story_puberty_choice.add_scene(1, scene);
     // story_puberty_choice.add_scene(0, scene_retour_choix_porte);
 
     return story_puberty_choice;
@@ -192,11 +190,11 @@ function init_story_puberty() {
 function init_story_pubertyF() {
 
   // Name of the story
-    let story = "pubertyF";
+    let story_name = "pubertyF";
     // The story itself
     var story_pubertyF = new Story();
 
-    var scene1 = new Scene(story, "montre_la_culotte", 1);
+    var scene1 = new Scene(story_name, "montre_la_culotte", 1);
 
 
     var choice3 = new Choice();
@@ -204,9 +202,9 @@ function init_story_pubertyF() {
     choice3.add_choice("expliquer_situation",2);
 
 
-    var scene2 = new Scene(story, "faire_les_courses", 3);
+    var scene2 = new Scene(story_name, "faire_les_courses", 3);
     scene2.add_choice(choice3);
-    var scene3 = new Scene(story, "je_communique_ecouter_10_24", 4);
+    var scene3 = new Scene(story_name, "je_communique_ecouter_10_24", 4);
 
 
     var choice4 = new Choice();
@@ -215,13 +213,13 @@ function init_story_pubertyF() {
     choice4.add_choice("tampons",2);
 
 
-    var scene4 = new Scene(story, "achat_produits_hygieniques", 4);
+    var scene4 = new Scene(story_name, "achat_produits_hygieniques", 4);
     scene4.add_choice(choice4);
-    var scene5 = new Scene(story, "explication_serviette", 8);
-    var scene6 = new Scene(story, "explication_tampon", 8);
-    var scene7 = new Scene(story, "explication_couche", 8);
-    var scene8 = new Scene(story, "fin", 0);
-    var scene_retour_choix_porte = new Scene(story, "retour_choix_porte", 0);
+    var scene5 = new Scene(story_name, "explication_serviette", 8);
+    var scene6 = new Scene(story_name, "explication_tampon", 8);
+    var scene7 = new Scene(story_name, "explication_couche", 8);
+    var scene8 = new Scene(story_name, "fin", 0);
+    var scene_retour_choix_porte = new Scene(story_name, "retour_choix_porte", 0);
 
     story_pubertyF.add_scene(1, scene1);
     story_pubertyF.add_scene(2, scene2);
@@ -241,13 +239,13 @@ function init_story_pubertyF() {
 function init_story_pubertyM() {
 
   // Name of the story
-    let story = "pubertyM";
+    let story_name = "pubertyM";
     // The story itself
     var story_pubertyM = new Story();
 
-    var scene1 = new Scene(story, "mere_entre_chambre", 2);
-    var scene2 = new Scene(story, "tu_es_enrhume", 3);
-    var scene3 = new Scene(story, "AH", 4);
+    var scene1 = new Scene(story_name, "mere_entre_chambre", 2);
+    var scene2 = new Scene(story_name, "tu_es_enrhume", 3);
+    var scene3 = new Scene(story_name, "AH", 4);
 
 
     var choice2 = new Choice();
@@ -256,13 +254,13 @@ function init_story_pubertyM() {
     choice2.add_choice("ne_pas_en_parler",2);
 
 
-    var scene4 = new Scene(story, "que_faire", 4);
+    var scene4 = new Scene(story_name, "que_faire", 4);
     scene4.add_choice(choice2);
-    var scene5 = new Scene(story, "jamais_en_parler", 8);
-    var scene6 = new Screen(story, "parler_en_prive", 8);
-    var scene7 = new Screen(story, "parler_devant_tout_le_monde", 8);
-    var scene8 = new Scene(story, "temoignage_fin", 0);
-    var scene_retour_choix_porte = new Scene(story, "retour_choix_porte", 0);
+    var scene5 = new Scene(story_name, "jamais_en_parler", 8);
+    var scene6 = new Scene(story_name, "parler_en_prive", 8);
+    var scene7 = new Scene(story_name, "parler_devant_tout_le_monde", 8);
+    var scene8 = new Scene(story_name, "temoignage_fin", 0);
+    var scene_retour_choix_porte = new Scene(story_name, "retour_choix_porte", 0);
 
     story_pubertyM.add_scene(1, scene1);
     story_pubertyM.add_scene(2, scene2);
@@ -282,12 +280,12 @@ function init_story_pubertyM() {
 function init_story_laziness() {
 
   // Name of the story
-    let story = "laziness";
+    let story_name = "laziness";
     // The story itself
     var story_laziness = new Story();
 
-    var scene1 = new Scene(story, "entree_chambre", 2);
-    var scene2 = new Scene(story, "paresseux_jungle", 3);
+    var scene1 = new Scene(story_name, "entree_chambre", 2);
+    var scene2 = new Scene(story_name, "paresseux_jungle", 3);
 
     var choice1 = new Choice();
     choice1.add_choice("Viens jouer dehors",2);
@@ -296,13 +294,13 @@ function init_story_laziness() {
     //Ajouter d'autres possibilites
 
     //  CYCLE DES REFUS DE L'ADO (plus simple que tenir le compte des jours)
-    var scene3 = new Scene(story, "proposition_1", 4);
+    var scene3 = new Scene(story_name, "proposition_1", 4);
     scene3.add_choice(choice1);
-    var scene4 = new Scene(story, "refus_1", 5);
-    var scene5 = new Scene(story, "proposition_2", 6);
+    var scene4 = new Scene(story_name, "refus_1", 5);
+    var scene5 = new Scene(story_name, "proposition_2", 6);
     scene5.add_choice(choice1);
-    var scene6 = new Scene(story, "refus_2", 7);
-    var scene7 = new Scene(story, "proposition_3", 8);
+    var scene6 = new Scene(story_name, "refus_2", 7);
+    var scene7 = new Scene(story_name, "proposition_3", 8);
     scene7.add_choice(choice1);
 
 
@@ -312,13 +310,13 @@ function init_story_laziness() {
     choice2.add_choice("le laisser tranquille",2);
 
 
-    var scene8 = new Scene(story, "choix_reaction", 8);
+    var scene8 = new Scene(story_name, "choix_reaction", 8);
     scene8.add_choice(choice2);
-    var scene9 = new Scene(story, "le_forcer", 12);
-    var scene10 = new Scene(story, "chercher_dialogue", 12);
-    var scene11 = new Scene(story, "ne_rien_faire", 12);
-    var scene12 = new Scene(story, "fin", 0);
-    var scene_retour_choix_porte = new Scene(story, "retour_choix_porte", 0);
+    var scene9 = new Scene(story_name, "le_forcer", 12);
+    var scene10 = new Scene(story_name, "chercher_dialogue", 12);
+    var scene11 = new Scene(story_name, "ne_rien_faire", 12);
+    var scene12 = new Scene(story_name, "fin", 0);
+    var scene_retour_choix_porte = new Scene(story_name, "retour_choix_porte", 0);
 
     story_laziness.add_scene(1, scene1);
     story_laziness.add_scene(2, scene2);

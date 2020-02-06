@@ -15,7 +15,7 @@ function setup() {
 
 function draw() {
   // Main function that loops forever
-
+  
   background(220);
   story.display();
   story = story.update();

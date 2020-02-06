@@ -70,7 +70,9 @@ class Scene {
   // DISPLAYING ----------------------------------------------------------------
 
   display () {
-    // for (i)
+    for (let i=0 ; i<this.layers.length ; i++) {
+      this.layers[i].display();
+    }
   }
 
   // UPDATING ------------------------------------------------------------------
@@ -79,9 +81,7 @@ class Scene {
     // Time is going on to make the scene advance
     this.time++;
     // Test the interaction for every layer
-    forEach((layers, inter) => {
-      inter.interact();
-    });
+    this.layers.forEach(inter => inter.interact());
     // Test interaction for the choices
     if(this.choices.interact()!=-1){
       if (this.choices.change_story()){
@@ -91,7 +91,7 @@ class Scene {
       return this.get_next();
     }
 
-
+    return this;
 
   }
 

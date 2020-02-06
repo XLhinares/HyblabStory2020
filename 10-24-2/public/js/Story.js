@@ -18,7 +18,7 @@ class Story {
   // DISPLAYING ----------------------------------------------------------------
 
   display () {
-
+    this.scenes[this.current_scene][1].display();
   }
 
   // UPDATING ------------------------------------------------------------------
@@ -28,9 +28,11 @@ class Story {
   }
 
   update() {
-    this.current_scene = this.scenes.get(this.current_scene).update();
-    if (this.scenes.get(this.current_scene).next_story()) {
+    let aux = this.scenes[this.current_scene][1].change_story;
+    this.current_scene = this.scenes[this.current_scene][1].update();
+    if (aux) {
       return this.current_scene;
     }
+    return this;
   }
 }

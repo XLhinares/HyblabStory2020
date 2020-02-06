@@ -31,7 +31,7 @@ class Animation extends Interactable {
 
   auto_add_image () {
     let i = 0;
-    while (this.add_image(this.path.concat("_",String(i),".png"))) {
+    while (this.add_image(this.path.concat("_",String(i),".svg"))) {
       i++;
     }
     // Done importing
@@ -44,10 +44,10 @@ class Animation extends Interactable {
   // DISPLAYING ----------------------------------------------------------------
 
   display(time) {
-    if (images.length == 0) {
+    if (this.images.length == 0) {
       rect(iwm,ihm,iw,ih);
     } else {
-      image(images[time%images.length], iwm, ihm);
+      image(this.images[time%this.images.length], iwm, ihm);
     }
   }
 
