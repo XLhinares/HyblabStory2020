@@ -1,0 +1,94 @@
+/* Omnes Semibold font */
+@import url(http://db.onlinewebfonts.com/c/827efd408950e4d94af5e60b9a37c5b8?family=Omnes+Semibold);
+html * {
+  font-size: 17px;
+  font-family: "Omnes Semibold";
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+section {
+  height: 100%;
+  width: 100%;
+}
+
+svg {
+  height: 100%;
+  width: 100%;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+#root > * {
+  width: 100%;
+  height: 100%;
+}
+
+#logo:hover {
+  cursor: pointer;
+}
+
+/* Text buttons */
+button {
+  padding: 10px;
+  border-radius: 25px;
+  border: 2px solid black;
+  color: black;
+  background-color: white;
+}
+
+button:hover {
+  border-radius: 25px;
+  border-color: rgb(255, 110, 0);
+  background-color: rgb(255, 110, 0);
+  color: white;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Social networks */
+
+#facebook-button,
+#instagram-button {
+  fill: transparent;
+}
+
+#facebook-button:hover,
+#instagram-button:hover {
+  cursor: pointer;
+}
+
+#facebook-button:hover > circle,
+#instagram-button:hover > circle {
+  stroke: rgb(255, 110, 0);
+  fill: rgb(255, 110, 0);
+}
+
+#facebook-button:hover path,
+#instagram-button:hover path {
+  fill: white;
+}
+
+.social-network-button {
+  width: 37.5px;
+  height: 37.5px;
+}
