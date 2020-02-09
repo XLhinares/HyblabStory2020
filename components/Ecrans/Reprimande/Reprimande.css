@@ -1,0 +1,16 @@
+/* Texte de reprimande */
+#texte-reprimande > p {
+  text-align: center;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 21px;
+  line-height: 23px;
+  margin: 40px 0;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  position: absolute;
+  /* bottom: 12%; */
+  bottom : 77%;
+  right: 28%;
+}
