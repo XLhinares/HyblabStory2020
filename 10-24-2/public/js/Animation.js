@@ -8,13 +8,18 @@ class Animation extends Interactable {
 
   // CONSTRUCTOR ---------------------------------------------------------------
 
-  constructor (path) {
+  constructor (path, auto_import=false) {
     super();
     this.path = path;
     this.images = new Array();
     this.freq = 24;
 
-    this.auto_add_image();
+    if (auto_import) {
+      this.auto_add_image();
+    } else {
+      this.add_image(this.path+".svg");
+    }
+
   }
 
   // ADDING NEW ELEMENTS -------------------------------------------------------
@@ -25,13 +30,16 @@ class Animation extends Interactable {
     try{
       this.images.push(loadImage(image_path));
     }catch (exception) {
+      console.log(exception);
       return false;
     }
+    console.log("success");
+    return true;
   }
 
   auto_add_image () {
     let i = 0;
-    while (this.add_image(this.path.concat("_",String(i),".svg"))) {
+    while (this.add_image(this.path+"_"+i+".svg") && i < 5) {
       i++;
     }
     // Done importing
@@ -47,6 +55,8 @@ class Animation extends Interactable {
     if (this.images.length == 0) {
       rect(iwm,ihm,iw,ih);
     } else {
+      let a = time%this.images.length;
+      // console.log("num of the displayed frame : "+ a);
       image(this.images[time%this.images.length], iwm, ihm);
     }
   }

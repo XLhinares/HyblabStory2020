@@ -4,21 +4,24 @@ class Story {
 
   // CONSTRUCTOR ---------------------------------------------------------------
 
-  constructor () {
-    this.scenes = new Array();
-    this.current_scene = 0;
+  constructor (story_name) {
+    this.name = story_name;
+    this.scenes = {};
+    this.current_scene = 1;
+    this.story_change = false;
+    this.next_story = this;
   }
 
   // ADDING NEW ELEMENTS -------------------------------------------------------
 
   add_scene (id_scene, scene) {
-    this.scenes.push([id_scene, scene]);
+    this.scenes[id_scene] = scene;
   }
 
   // DISPLAYING ----------------------------------------------------------------
 
   display () {
-    this.scenes[this.current_scene][1].display();
+    this.scenes[this.current_scene].display();
   }
 
   // UPDATING ------------------------------------------------------------------
@@ -28,11 +31,24 @@ class Story {
   }
 
   update() {
-    let aux = this.scenes[this.current_scene][1].change_story;
-    this.current_scene = this.scenes[this.current_scene][1].update();
-    if (aux) {
-      return this.current_scene;
+    this.scenes[this.current_scene].update();
+
+    if (this.scenes[this.current_scene].next_element) {
+
+      // checks if story changes
+      if (this.scenes[this.current_scene].change_story) {
+        this.story_change = true;
+        this.next_story = this.scenes[this.current_scene].next_story;
+        console.log("Story will change into : "+ this.next_story);
+      } else {
+        this.current_scene = this.scenes[this.current_scene].next_scene;
+        console.log("Scene changed into : "+ this.current_scene);
+      }
     }
-    return this;
+  } // END UPDATE
+
+  interact() {
+    this.scenes[this.current_scene].interact();
   }
+
 }

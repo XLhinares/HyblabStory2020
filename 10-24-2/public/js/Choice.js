@@ -9,10 +9,10 @@ class Choice extends Interactable {
     this.choices = new Array();
   }
 
-  add_choice (text, id_linked_scene,change_story=false) {
+  add_choice (text, id_linked_scene,cs=false) {
     // text is what is displayed for this choice
     // id_linked_scene is the id of the scene which relates to this choice
-    this.choices.push([text,id_linked_scene,change_story]);
+    this.choices.push([text,id_linked_scene,cs]);
   }
 
   // DISPLAY -------------------------------------------------------------------
@@ -27,22 +27,38 @@ class Choice extends Interactable {
               bh,                 // box height
               10                  // rounded corners
         );
-        text( this.choices.get(i).get(0),    // text
-              (w-bw)/1.9,         // x coordinate
-              h-(i+1.4)*bh        // y coordinate
+        text( this.choices[i][0],    // text
+              (w-bw)/1.5,         // x coordinate
+              h-(i+1.1)*bh        // y coordinate
         );
 
       } // END FOR
   } // END DISPLAY
+
+  // PSEUDO GETTERS
+
+  change_story (choice) {
+    console.log("Choice --- ("+choice+") asked if story changes");
+    return this.choices[choice][2];
+  }
+
+  next_element (choice) {
+    console.log("Choice --- ("+choice+") asked next element : "+this.choices[choice][1]+" ("+this.choices[choice][0]+")");
+    return this.choices[choice][1];
+  }
 
   // INTERACTION ---------------------------------------------------------------
 
   interact () {
     if (mouseX > bm && mouseX < (w-bm)) {
       let closest_choice = parseInt((h-mouseY)/(1.5*bh));
-      if (mouseY-closest_choice*bh*1.5 > 0.5*bh) {
-        return (this.choices.get(i).get(1)); // id of the next scene according to the choice
-      } // END IF
+      console.log("You chose the choice : "+ closest_choice);
+      if (mouseY-closest_choice*bh*1.5 > 0.5*bh && closest_choice<this.choices.length) {
+        console.log("Choice accepted");
+        return closest_choice;
+      } else {
+        console.log("Choice refused");
+      }
     } // END IF
     return (-1);
   } // END INTERACTION
