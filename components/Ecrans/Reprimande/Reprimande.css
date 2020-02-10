@@ -1,5 +1,8 @@
 /* Texte de reprimande */
 #texte-reprimande > p {
+  /* border: 3px black solid;
+  border-radius: 10px;
+  padding: 5px; */
   text-align: center;
   font-style: normal;
   font-weight: 600;
@@ -13,6 +16,20 @@
   /* bottom: 12%; */
   bottom : 77%;
   right: 28%;
+}
+
+/* Button next scene */
+
+#next {
+  height: 40px;
+  width: 150px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  position: absolute;
+  bottom: 17%;
+  right: 30%;
+  line-height:15px;
 }
 
 /* Effet shake/secousse @see https://css-tricks.com/snippets/css/shake-css-keyframe-animation/ */

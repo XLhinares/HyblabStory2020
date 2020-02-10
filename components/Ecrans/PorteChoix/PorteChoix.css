@@ -26,6 +26,14 @@
   line-height:28px;
 }
 
+#toquer:hover {
+  border-color: white;
+}
+
+#partir:hover {
+  border-color: white;
+}
+
 .scenario-buttons > button {
   width: 100%;
   border-radius: 151px;
