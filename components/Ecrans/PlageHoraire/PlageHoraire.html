@@ -51,8 +51,47 @@
     <line class="cls-5" x1="1232.5" y1="801.5" x2="1232.5" y2="761.5"/>
   </g>
 </svg>
-<div id="texte-plage-horaire">
+<!-- <div id="texte-plage-horaire">
   <p>
-    Sur quelles plages horaires se sont-ils mis d'accord ? <br />Faites glisser le curseur pour les délimiter.
+    Sur quelles plages horaires se sont-ils mis d&#039accord ? <br />Faites glisser le curseur pour les délimiter.
   </p>
-</div>
+</div> -->
+<div slider id="slider-distance">
+    <div>
+      <div inverse-left style="width:70%;"></div>
+      <div inverse-right style="width:70%;"></div>
+      <div range style="left:0%;right:0%;"></div>
+      <span thumb style="left:0%;"></span>
+      <span thumb style="left:100%;"></span>
+      <div sign style="left:0%;">
+        <span id="value">0</span>
+      </div>
+      <div sign style="left:100%;">
+        <span id="value">24</span>
+      </div>
+    </div>
+    <input type="range" value="0" max="24" min="0" step="1" id="min_slider" oninput="
+    this.value=Math.min(this.value,this.parentNode.childNodes[5].value-1);
+    let value = (this.value/parseInt(this.max))*100
+    var children = this.parentNode.childNodes[1].childNodes;
+    children[1].style.width=value+'%';
+    children[5].style.left=value+'%';
+    children[7].style.left=value+'%';children[11].style.left=value+'%';
+    children[11].childNodes[1].innerHTML=this.value;
+    document.getElementById('zone1').innerHTML = this.value;" />
+
+    <input type="range" value="24" max="24" min="0" step="1" id="max_slider" oninput="
+    this.value=Math.max(this.value,this.parentNode.childNodes[3].value-(-1));
+    let value = (this.value/parseInt(this.max))*100
+    var children = this.parentNode.childNodes[1].childNodes;
+    children[3].style.width=(100-value)+'%';
+    children[5].style.right=(100-value)+'%';
+    children[9].style.left=value+'%';children[13].style.left=value+'%';
+    children[13].childNodes[1].innerHTML=this.value;
+    document.getElementById('zone2').innerHTML = this.value;" />
+  </div>
+
+  <div>
+    <p id="zone1">Zone 1</p>
+    <p id="zone2">Zone 2</p>
+  </div>
