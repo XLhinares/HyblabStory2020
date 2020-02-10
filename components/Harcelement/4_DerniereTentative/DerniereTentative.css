@@ -1,12 +1,12 @@
 
 #le-laisser {
     height: 73px;
-    width: 150px;
+    width: 200px;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     position: absolute;
-    bottom: 58%;
+    bottom: 61%;
     right: 42%;
   }
   
@@ -17,14 +17,15 @@
 
   
 #insister {
-    height: 50px;
-    width: 100px;
+    height: 73px;
+    width: 200px;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     position: absolute;
-    bottom: 63%;
+    bottom: 61%;
     right: 55%;
+    line-height: 250%;
 }
 
 #insister > button {
