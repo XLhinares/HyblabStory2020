@@ -61,11 +61,11 @@
   display: none;
 }
 
-.hideText .texte {
+.texte {
   display: none;
 }
 
-.hideText .design {
+.design {
   display: block;
 }
 

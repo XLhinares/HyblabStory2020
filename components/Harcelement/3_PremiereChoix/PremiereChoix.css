@@ -1,13 +1,13 @@
 
 #le-laisser {
-  height: 50px;
-  width: 250px;
+  height: 70px;
+  width: 300px;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   position: absolute;
   bottom: 40%;
-  right: 26%;
+  right: 22%;
 }
 
 #le-laisser > button {
@@ -17,14 +17,15 @@
 
 
 #aller-le-voir {
-  height: 50px;
-  width: 150px;
+  height: 70px;
+  width: 300px;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   position: absolute;
   bottom: 50%;
-  right: 28.5%;
+  right: 22%;
+  line-height: 250%;
 }
 
 #aller-le-voir > button {
