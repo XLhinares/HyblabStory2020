@@ -7,9 +7,19 @@ class Story {
   constructor (story_name) {
     this.name = story_name;
     this.scenes = {};
-    this.current_scene = 1;
-    this.story_change = false;
-    this.next_story = this;
+    this.default_current_scene = 1;
+    this.default_story_change = false;
+    this.default_next_story = this;
+    this.current_scene = this.default_current_scene;
+    this.story_change = this.default_story_change;
+    this.next_story = this.default_next_story;
+
+  }
+
+  reinit () {
+    this.current_scene = this.default_current_scene;
+    this.story_change = this.default_story_change;
+    this.next_story = this.default_next_story;
   }
 
   // ADDING NEW ELEMENTS -------------------------------------------------------
@@ -31,19 +41,24 @@ class Story {
   }
 
   update() {
-    this.scenes[this.current_scene].update();
 
-    if (this.scenes[this.current_scene].next_element) {
+    let tmp = this.scenes[this.current_scene];
+    tmp.update();
+
+    if (tmp.next_element) {
 
       // checks if story changes
-      if (this.scenes[this.current_scene].change_story) {
+      if (tmp.change_story) {
         this.story_change = true;
-        this.next_story = this.scenes[this.current_scene].next_story;
+        this.next_story = tmp.next_story;
         console.log("Story will change into : "+ this.next_story);
       } else {
-        this.current_scene = this.scenes[this.current_scene].next_scene;
+        this.current_scene = tmp.next_scene;
         console.log("Scene changed into : "+ this.current_scene);
       }
+
+      tmp.reinit(); // The scene will be as good as new if we come back to it at some point
+
     }
   } // END UPDATE
 

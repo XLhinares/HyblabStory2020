@@ -26,9 +26,9 @@ function init () {
   } else {
     fact = w/1920;
   }
-  iw = 1080*fact;        // Image width
+  iw = 1280;        // Image width
   iwm = (w-iw)/2;   // Image width margin
-  ih = 720*fact;         // Image height
+  ih = 720;         // Image height
   ihm = (h-ih)/2;   // Image height margin
   bm = w/20;        // Box margin
   bw = 8*w/9;         // Box width
@@ -62,7 +62,7 @@ function init_story_intro () {
   var story1 = new Story(story_name);
 
   // All the scenes
-  var scene1 = new Scene(story_name, "scene_4_portes", 1, auto_import=true); // "intro" is the story used to start the other stories
+  var scene1 = new Scene(story_name, "laziness", 1); // "intro" is the story used to start the other stories
   // scene1.add_choice("Harcelement",story_bullying,cs=true);
   scene1.add_choice("Flemmardise",story_laziness,cs=true);
   // scene1.add_choice("Ecrans",story_screens,cs=true);
@@ -291,40 +291,57 @@ function init_story_laziness() {
     // The story itself
     var story_laziness = new Story(story_name);
 
-    var scene1 = new Scene(story_name, "entree_chambre", 2);
+    // OLD VERSION -------------------------------------------------------------
+    //
+    // var scene1 = new Scene(story_name, "entree_chambre", 2);
+    //
+    // var scene2 = new Scene(story_name, "paresseux_jungle", 3);
+    //
+    // var choice1 = new Choice();
+    // //Ajouter d'autres possibilites
+    //
+    // //  CYCLE DES REFUS DE L'ADO (plus simple que tenir le compte des jours)
+    // var scene3 = new Scene(story_name, "proposition_1", 4);
+    // scene3.add_choice("Viens jouer dehors",2);
+    // scene3.add_choice("Viens faire un jeu de société",2);
+    // scene3.add_choice("Viens faire les courses",2);
+    //
+    // var scene4 = new Scene(story_name, "refus_1", 5);
+    // var scene5 = new Scene(story_name, "proposition_2", 6);
+    // scene5.add_choice("Viens jouer dehors",2);
+    // scene5.add_choice("Viens faire un jeu de société",2);
+    // scene5.add_choice("Viens faire les courses",2);
+    //
+    // var scene6 = new Scene(story_name, "refus_2", 7);
+    // var scene7 = new Scene(story_name, "proposition_3", 8);
+    // scene7.add_choice("Viens jouer dehors",2);
+    // scene7.add_choice("Viens faire un jeu de société",2);
+    // scene7.add_choice("Viens faire les courses",2);
+    //
+    //
+    // var scene8 = new Scene(story_name, "choix_reaction", 8);
+    // scene8.add_choice("Le forcer a venir",8);
+    // scene8.add_choice("chercher le dialogue",10);
+    // scene8.add_choice("le laisser tranquille",11);
+    // //var scene9 = new Scene(story_name, "le_forcer", 12);
+    // var scene10 = new Scene(story_name, "chercher_dialogue", 12);
+    // var scene11 = new Scene(story_name, "ne_rien_faire", 12);
+    // var scene12 = new Scene(story_name, "fin", 12, cs=story_intro);
 
-    var scene2 = new Scene(story_name, "paresseux_jungle", 3);
+    // NEW VERSION -------------------------------------------------------------
 
-    var choice1 = new Choice();
-    //Ajouter d'autres possibilites
-
-    //  CYCLE DES REFUS DE L'ADO (plus simple que tenir le compte des jours)
-    var scene3 = new Scene(story_name, "proposition_1", 4);
-    scene3.add_choice("Viens jouer dehors",2);
-    scene3.add_choice("Viens faire un jeu de société",2);
-    scene3.add_choice("Viens faire les courses",2);
-
-    var scene4 = new Scene(story_name, "refus_1", 5);
-    var scene5 = new Scene(story_name, "proposition_2", 6);
-    scene5.add_choice("Viens jouer dehors",2);
-    scene5.add_choice("Viens faire un jeu de société",2);
-    scene5.add_choice("Viens faire les courses",2);
-
-    var scene6 = new Scene(story_name, "refus_2", 7);
-    var scene7 = new Scene(story_name, "proposition_3", 8);
-    scene7.add_choice("Viens jouer dehors",2);
-    scene7.add_choice("Viens faire un jeu de société",2);
-    scene7.add_choice("Viens faire les courses",2);
-
-
-    var scene8 = new Scene(story_name, "choix_reaction", 8);
-    scene8.add_choice("Le forcer a venir",8);
-    scene8.add_choice("chercher le dialogue",10);
-    scene8.add_choice("le laisser tranquille",11);
-    //var scene9 = new Scene(story_name, "le_forcer", 12);
-    var scene10 = new Scene(story_name, "chercher_dialogue", 12);
-    var scene11 = new Scene(story_name, "ne_rien_faire", 12);
-    var scene12 = new Scene(story_name, "fin", 12, cs=story_intro);
+    var scene1 = new Scene(story_name, "1", 2);
+    var scene2 = new Scene(story_name, "2", 3);
+    var scene3 = new Scene(story_name, "3", 4);
+    var scene4 = new Scene(story_name, "4", 5);
+    var scene5 = new Scene(story_name, "5", 6);
+    var scene6 = new Scene(story_name, "6", 7);
+    var scene7 = new Scene(story_name, "7", 8);
+    var scene8 = new Scene(story_name, "8", 9);
+    var scene9 = new Scene(story_name, "9", 10);
+    var scene10 = new Scene(story_name, "10", 11);
+    var scene11 = new Scene(story_name, "11", 12);
+    var scene12 = new Scene(story_name, "12", 12, cs=story_intro);
 
     story_laziness.add_scene(1, scene1);
     story_laziness.add_scene(2, scene2);
@@ -334,10 +351,10 @@ function init_story_laziness() {
     story_laziness.add_scene(6, scene6);
     story_laziness.add_scene(7, scene7);
     story_laziness.add_scene(8, scene8);
-    //story_laziness.add_scene(9, scene9);
+    story_laziness.add_scene(9, scene9);
     story_laziness.add_scene(10, scene10);
     story_laziness.add_scene(11, scene11);
-    story_laziness.add_scene(12, scene12);
+    story_laziness.add_scene(12, scene11);
 
     return story_laziness;
 }

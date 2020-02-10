@@ -13,14 +13,14 @@ class Scene {
     // Variables related to the outside
     this.name_scene = name_scene;         // Name of the scene
     this.name_story = name_story;   // Name of the related story
-    this.next_element = false;
-    this.next_scene = next;               // ID of next scene
+    this.default_next_element = false;
+    this.default_next_scene = next;               // ID of next scene
 
-    this.change_story = false;            // true if next_scene is linked to the next story (false by default)
+    this.default_change_story = false;            // true if next_scene is linked to the next story (false by default)
     if (cs != false && cs != undefined) {
       console.log("story change ("+cs+") defined for scene : "+this.name_scene);
-      this.next_story = cs;
-      this.change_story = true;     //
+      this.default_next_story = cs;
+      this.default_change_story = true;     //
     }
 
     // Variables related to the inside
@@ -36,6 +36,13 @@ class Scene {
     this.add_choice("suivant",next);
   }
 
+  reinit () {
+    this.next_element = false;
+    this.next_scene = this.default_next_scene;
+    this.change_story = this.default_change_story;
+    this.next_story = this.default_next_story;
+    this.time = 0;
+  }
 
   // ADDING NEW ELEMENTS -------------------------------------------------------
 

@@ -17,7 +17,7 @@ class Animation extends Interactable {
     if (auto_import) {
       this.auto_add_image();
     } else {
-      this.add_image(this.path+".svg");
+      this.add_image(this.path+".png");
     }
 
   }
@@ -39,7 +39,7 @@ class Animation extends Interactable {
 
   auto_add_image () {
     let i = 0;
-    while (this.add_image(this.path+"_"+i+".svg") && i < 5) {
+    while (this.add_image(this.path+"_"+i+".png") && i < 5) {
       i++;
     }
     // Done importing
@@ -56,8 +56,7 @@ class Animation extends Interactable {
       rect(iwm,ihm,iw,ih);
     } else {
       let a = time%this.images.length;
-      // console.log("num of the displayed frame : "+ a);
-      image(this.images[time%this.images.length], iwm, ihm);
+      image(this.images[time%this.images.length], iwm, ihm, iw, ih);
     }
   }
 

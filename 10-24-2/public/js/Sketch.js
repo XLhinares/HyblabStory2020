@@ -2,20 +2,18 @@
 
 var story;
 
-function preload() {
-  console.log("SETUP: starting");
-
-  init ();
-
-  init_stories();
-}
 
 function setup() {
 
   // Run once on start
   createCanvas(windowWidth, windowHeight);
 
+  background(255);
 
+  console.log("SETUP: starting");
+
+  init ();
+  init_stories();
   init_style();
 
   story = story_intro; // The first story
@@ -30,14 +28,16 @@ function draw() {
 
   console.log("Sketch --- Story '"+story.name+"' : Scene " + story.current_scene + "\n" + story);
 
-  background(220);
+  background(255);
   story.display();
   story.update();
 
 
   if (story.story_change) {
     console.log("Sketch --- Story change !");
-    story = story.next_story;
+    let tmp = story;
+    story = tmp.next_story;
+    tmp.reinit()
   }
 
 
