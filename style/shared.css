@@ -46,15 +46,15 @@ img {
 
 /* Text buttons */
 button {
+  width: 263px;
   padding: 10px;
-  border-radius: 25px;
+  border-radius: 151px;
   border: 2px solid black;
   color: black;
   background-color: white;
 }
 
 button:hover {
-  border-radius: 25px;
   border-color: rgb(255, 110, 0);
   background-color: rgb(255, 110, 0);
   color: white;
