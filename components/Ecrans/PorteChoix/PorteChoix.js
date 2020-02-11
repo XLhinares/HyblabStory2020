@@ -1,34 +1,27 @@
 import Component from "../../../js/Component.js";
 
-export default class Porte extends Component {
-  constructor({ onGoRentrer }) {
+export default class PorteChoix extends Component {
+  constructor({ onGoToRentrer, onGoToPorte }) {
     super();
     this.html = "";
     this.onGoToRentrer = onGoToRentrer;
+    this.onGoToPorte = onGoToPorte;
   }
 
   async load() {
     this.html = await this.loadHTML(
-      "/10-24-2/scenes/Ecrans/PorteChoix/PorteChoix.html"
+      "/10-24-2/scenes/Ecran/PorteChoix/PorteChoix.html"
     );
   }
 
   componentDidMount() {
+    console.log("PorteChoix mount");
     document
       .getElementById("toquer")
-      .addEventListener("click", this.onGoToRentrer);
+      .addEventListener("click", e => this.onGoToRentrer(e));
     document
       .getElementById("partir")
-      .addEventListener("click", this.onGoToCarousel);
-  }
-
-  componentWillUnmount() {
-    document
-      .getElementById("toquer")
-      .removeEventListener("click", this.onGoToRentrer);
-    document
-      .getElementById("partir")
-      .addEventListener("click", this.onGoToCarousel);
+      .addEventListener("click", e => this.onGoToPorte(e));
   }
 
   render(target) {
