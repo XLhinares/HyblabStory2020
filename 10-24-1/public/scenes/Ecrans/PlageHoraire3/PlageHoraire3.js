@@ -14,14 +14,14 @@ export default class PlageHoraire3 extends Component {
   }
 
   componentDidMount() {
+    document.getElementById("buzzer-player").pause();
+    document.getElementById("buzzer-player").elemMusicOn = false;
     document
       .getElementById("e_next")
       .addEventListener("click", e => this.goToPageFin(e));
   }
 
   render(target) {
-    document.getElementById("buzzer-player").pause();
-    document.getElementById("buzzer-player").elemMusicOn = false;
     this.renderHtmlInTarget(target, this.html);
     this.componentDidMount();
   }

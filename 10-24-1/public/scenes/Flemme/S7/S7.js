@@ -14,6 +14,7 @@ export default class S7 extends Component {
   }
 
   componentDidMount() {
+    document.getElementById("flemme-mid-player").volume = 0.05;
     document.getElementById("choix-portes").style.display = "none";
   }
 
@@ -22,7 +23,6 @@ export default class S7 extends Component {
   }
 
   render(target) {
-    document.getElementById("flemme-mid-player").volume = 0.05;
     this.renderHtmlInTarget(target, this.html);
     this.componentDidMount();
   }

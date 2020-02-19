@@ -14,14 +14,6 @@ export default class S2 extends Component {
   }
 
   componentDidMount() {
-    document.getElementById("choix-portes").style.display = "none";
-  }
-
-  componentWillUnmount() {
-    document.getElementById("choix-portes").style.display = "block";
-  }
-
-  render(target) {
     document.getElementById("flemme-mid-player").elemMusicOn = true;
     document.getElementById("flemme-mid-player").volume = 0.11;
     if (!document.getElementById("flemme-player").isMuted) {
@@ -30,6 +22,14 @@ export default class S2 extends Component {
       document.getElementById("flemme-player").elemMusicOn = true;
       document.getElementById("flemme-player").volume = 0.11;
     }
+    document.getElementById("choix-portes").style.display = "none";
+  }
+
+  componentWillUnmount() {
+    document.getElementById("choix-portes").style.display = "block";
+  }
+
+  render(target) {
     this.renderHtmlInTarget(target, this.html);
     this.componentDidMount();
   }

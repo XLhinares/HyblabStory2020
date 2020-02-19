@@ -13,7 +13,11 @@ export default class ATable extends Component {
   }
 
   componentDidMount() {
-    document.getElementById("puberte-global-player").play();
+    document.getElementById("puberte-global-player").elemMusicOn = true;
+    document.getElementById("puberte-global-player").volume = 0.11;
+    if (!document.getElementById("puberte-global-player").isMuted) {
+      document.getElementById("puberte-global-player").play();
+    }
     document.getElementById("choix-portes").style.display = "none";
   }
 

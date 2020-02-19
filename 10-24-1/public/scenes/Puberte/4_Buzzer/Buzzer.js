@@ -19,17 +19,25 @@ export default class Buzzer extends Component {
       .addEventListener("click", e => this.goToDiscussion(e));
     // Pause sur la musique d'ambiance
     document.getElementById("puberte-global-player").pause();
-    console.log(document.getElementById("buzzer-player"));
-    document.getElementById("buzzer-player").onended = () =>
-      document.getElementById("puberte-global-player").play();
-  }
-
-  render(target) {
+    document.getElementById("puberte-global-player").elemMusicOn = false;
+    // Buzzer player
     document.getElementById("buzzer-player").elemMusicOn = true;
-    document.getElementById("buzzer-player").volume = 0.1;
+    document.getElementById("buzzer-player").volume = 0.13;
     if (!document.getElementById("buzzer-player").isMuted) {
       document.getElementById("buzzer-player").play();
     }
+    // End of buzzer, background music restart
+    document.getElementById("buzzer-player").onended = () =>
+      document.getElementById("buzzer-player").elemMusicOn = false;
+      // document.getElementById("buzzer-player").pause();
+      document.getElementById("puberte-global-player").elemMusicOn = true;
+      document.getElementById("puberte-global-player").volume = 0.11;
+      if (!document.getElementById("puberte-global-player").isMuted) {
+        document.getElementById("puberte-global-player").play();
+      }
+  }
+
+  render(target) {
     this.renderHtmlInTarget(target, this.html);
     this.componentDidMount();
   }

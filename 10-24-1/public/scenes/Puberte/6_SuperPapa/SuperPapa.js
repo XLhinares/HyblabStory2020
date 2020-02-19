@@ -16,17 +16,18 @@ export default class SuperPapa extends Component {
   componentDidMount() {
     document.getElementById("choix-portes").style.display = "none";
     setTimeout(() => this.goToRayon(), 5000);
-  }
-
-  render(target) {
+    // End dad discussion
     document.getElementById("papa-player").pause();
     document.getElementById("papa-player").elemMusicOn = false;
-
+    // Superdad inc
     document.getElementById("super-papa-player").elemMusicOn = true;
-    document.getElementById("super-papa-player").volume = 0.1;
+    document.getElementById("super-papa-player").volume = 0.11;
     if (!document.getElementById("super-papa-player").isMuted) {
       document.getElementById("super-papa-player").play();
     }
+  }
+
+  render(target) {
     this.renderHtmlInTarget(target, this.html);
     this.componentDidMount();
   }

@@ -35,7 +35,17 @@ export default class Choix extends Component {
   }
 
   componentDidMount() {
-    document.getElementById("puberte-global-player").play();
+    // End supermarket background music and buzzer
+    document.getElementById("rayon-player").pause();
+    document.getElementById("rayon-player").elemMusicOn = false;
+    document.getElementById("buzzer-player").pause();
+    document.getElementById("buzzer-player").elemMusicOn = false;
+    //Background music on
+    document.getElementById("puberte-global-player").elemMusicOn = true;
+    document.getElementById("puberte-global-player").volume = 0.11;
+    if (!document.getElementById("puberte-global-player").isMuted) {
+      document.getElementById("puberte-global-player").play();
+    }
     document.getElementById("choix-portes").style.display = "block";
     const { x, y } = document.getElementById("panier").getBoundingClientRect();
 
@@ -117,10 +127,6 @@ export default class Choix extends Component {
   }
 
   render(target) {
-    document.getElementById("rayon-player").pause();
-    document.getElementById("rayon-player").elemMusicOn = false;
-    document.getElementById("buzzer-player").pause();
-    document.getElementById("buzzer-player").elemMusicOn = false;
 
     $(function() {
       $("*[draggable!=true]", ".slick-track").unbind("dragstart");

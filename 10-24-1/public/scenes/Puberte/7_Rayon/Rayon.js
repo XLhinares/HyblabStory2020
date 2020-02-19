@@ -17,17 +17,18 @@ export default class Rayon extends Component {
     document.getElementById("choix-portes").style.display = "none";
     setTimeout(() => this.goToChoix(), 7000);
     setTimeout(() => this.goToChoix(), 5000);
-  }
-
-  render(target) {
+    //End superdad
     document.getElementById("super-papa-player").pause();
     document.getElementById("super-papa-player").elemMusicOn = false;
-
+    // Supermarket background on
     document.getElementById("rayon-player").elemMusicOn = true;
-    document.getElementById("rayon-player").volume = 0.1;
+    document.getElementById("rayon-player").volume = 0.11;
     if (!document.getElementById("rayon-player").isMuted) {
       document.getElementById("rayon-player").play();
     }
+  }
+
+  render(target) {
     this.renderHtmlInTarget(target, this.html);
     this.componentDidMount();
   }

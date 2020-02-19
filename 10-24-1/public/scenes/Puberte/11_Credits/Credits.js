@@ -20,6 +20,7 @@ export default class Credits extends Component {
     }
 
     // Fin de la musique d'ambiance
+    document.getElementById("puberte-global-player").elemMusicOn = false;
     document.getElementById("puberte-global-player").pause();
   }
 

@@ -15,6 +15,8 @@ export default class PremierChoix extends Component {
   }
 
   componentDidMount() {
+    document.getElementById("porte-claque-player").pause();
+    document.getElementById("porte-claque-player").elemMusicOn = false;
     document.getElementById("choix-portes").style.display = "block";
     document
       .getElementById("aller-le-voir")
@@ -25,8 +27,6 @@ export default class PremierChoix extends Component {
   }
 
   render(target) {
-    document.getElementById("porte-claque-player").pause();
-    document.getElementById("porte-claque-player").elemMusicOn = false;
     this.renderHtmlInTarget(target, this.html);
     this.componentDidMount();
   }

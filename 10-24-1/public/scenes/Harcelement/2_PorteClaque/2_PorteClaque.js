@@ -14,6 +14,11 @@ export default class PorteClaque extends Component {
   }
 
   componentDidMount() {
+    document.getElementById("porte-claque-player").elemMusicOn = true;
+    document.getElementById("porte-claque-player").volume = 0.15;
+    if (!document.getElementById("porte-claque-player").isMuted) {
+      document.getElementById("porte-claque-player").play();
+    }
     document.getElementById("choix-portes").style.display = "none";
     setTimeout(() => this.goToPremierChoix(), 3000);
   }
@@ -23,11 +28,6 @@ export default class PorteClaque extends Component {
   }
 
   render(target) {
-    document.getElementById("porte-claque-player").elemMusicOn = true;
-    document.getElementById("porte-claque-player").volume = 0.15;
-    if (!document.getElementById("porte-claque-player").isMuted) {
-      document.getElementById("porte-claque-player").play();
-    }
     this.renderHtmlInTarget(target, this.html);
     this.componentDidMount();
   }
